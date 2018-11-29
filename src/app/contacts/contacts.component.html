@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Message if there are no notes -->
+        <h3 *ngIf="contacts.length === 0">No Contact List</h3>
+        <h3 *ngIf="contacts.length !== 0">Contact List</h3>
+      </div>
+    </div>
+
+    <div class="row">
+        <ul class="list-group col-md-4">
+          <li class="list-group-item" *ngFor="let c of contacts">
+            <span (mouseover)="selectContact(c)">{{c.name.first + " " + c.name.last }}</span>
+          </li>
+        </ul>
+        <div class="media col-md-6">
+            <div class="media-left">
+              <span>
+                  <img src="{{selectedContact?.picture.large}}">
+              </span>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+                {{selectedContact?.name.first + " " + selectedContact?.name.last}}
+              </h4>
+
+              <button *ngIf="editMode" (click)="toggleEditMode()">Edit</button>
+              <button *ngIf="!editMode" (click)="updateContact(selectedContact)">Save</button>
+              <button *ngIf="!editMode" (click)="deleteContact(selectedContact._id)">Delete</button>
+              <button *ngIf="!editMode" (click)="toggleEditMode()">Cancel</button>
+              <div>
+                <h6>Location</h6>
+                  <p>
+                    <span>Street: </span>
+                    <span *ngIf="editMode">{{selectedContact?.location.street }}</span>
+                    <input *ngIf="!editMode" type="text" [(ngModel)]="selectedContact?.location.street">
+                  </p>
+                  <p>
+                    <span>City: </span>
+                    <span>{{selectedContact?.location.city }}</span>
+                  </p>
+                  <p>
+                    <span>State: </span>
+                    <span>{{selectedContact?.location.state }}</span>
+                  </p>
+                  <p>
+                    <span>Postal code: </span>
+                    <span>{{selectedContact?.location.postcode }}</span>
+                  </p>
+              </div>
+              <div>
+                <h6>Phone</h6>
+                <p>
+                  <span>Home Phone: </span>
+                  <span>{{selectedContact?.phone }}</span>
+                </p>
+                <p>
+                  <span>Cell Phone: </span>
+                  <span>{{selectedContact?.cell }}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+    </div>
+
+  </div>
+</div>

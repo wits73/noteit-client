@@ -16,12 +16,12 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getAllNotebooks(): Observable<Notebook[]> {
-    console.log(this.ALL_NOTEBOOKS_URL);
+    // console.log(this.ALL_NOTEBOOKS_URL);
     return this.http.get<Notebook[]>(this.ALL_NOTEBOOKS_URL);
   }
 
   deleteNotebook(id: string): Observable<any> {
-    console.log('id:', id);
+    // console.log('id:', id);
     return this.http.delete(this.DELETE_NOTEBOOK_URL + id);
   }
 

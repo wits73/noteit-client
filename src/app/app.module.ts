@@ -11,6 +11,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NotesComponent } from './notes/notes.component';
 import { NoteComponent } from './notes/note/note.component';
 import { NoteTextFilterPipe } from './shared/pipes/note-text-filter.pipe';
+import { ContactsComponent } from './contacts/contacts.component';
+import { DetailComponent } from './contacts/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { NoteTextFilterPipe } from './shared/pipes/note-text-filter.pipe';
     NotFoundComponent,
     NotesComponent,
     NoteComponent,
-    NoteTextFilterPipe
+    NoteTextFilterPipe,
+    ContactsComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
